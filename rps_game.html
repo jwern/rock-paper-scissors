@@ -5,6 +5,28 @@
         <title>Rock, Paper, Scissors</title>
     </head>
     <body>
-        <script></script>
+        <script>
+            function computerPlay() {
+                let computerChoice = pickRandomNumber(3);
+
+                let computerThrows;
+
+                if (computerChoice === 1) {
+                    computerThrows = "Rock";
+                } else if (computerChoice === 2) {
+                    computerThrows = "Paper";
+                } else {
+                    computerThrows = "Scissors";
+                }
+                
+                console.log(computerThrows);
+            }
+
+            function pickRandomNumber(choiceCount) {
+                return Math.floor(Math.random() * choiceCount) + 1;
+            }
+
+            computerPlay();
+        </script>
     </body>
 </html>
