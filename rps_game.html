@@ -39,20 +39,24 @@
             }
 
             function victoryMessage(victoryCondition) {
+                playerSelection = capitalizeFirstLetter(playerSelection);
+                computerSelection = capitalizeFirstLetter(computerSelection);
+
                 if (playerSelection === computerSelection) {
                     return `Tie! You both picked ${playerSelection}.`;
-                }
-                
-                if (victoryCondition === true) {
+                } else if (victoryCondition === true) {
                     return `You Win! ${playerSelection} beats ${computerSelection}`;
                 } else {
                     return `You Lose! ${computerSelection} beats ${playerSelection}`;
                 }
             }
+
+            function capitalizeFirstLetter(string) {
+                return string[0].toUpperCase().concat(string.slice(1));
+            }
             
-            const playerSelection = "rock";
-            const computerSelection = computerPlay();
+            let playerSelection = "rock";
+            let computerSelection = computerPlay();
             console.log(playRound(playerSelection, computerSelection));
-        </script>
     </body>
 </html>
