@@ -60,20 +60,10 @@
             function game() {
                 let totalScore = 0;
 
-                if (playRound()) {
-                    totalScore++;
-                }
-                if (playRound()) {
-                    totalScore++;
-                }
-                if (playRound()) {
-                    totalScore++;
-                }
-                if (playRound()) {
-                    totalScore++;
-                }
-                if (playRound()) {
-                    totalScore++;
+                for (let i = 0; i < 5; i++) {
+                    if (playRound()) {
+                        totalScore++;
+                    }
                 }
                 
                 if (totalScore >= 3) {
