@@ -83,6 +83,16 @@ function capitalizeFirstLetter(string) {
     return string[0].toUpperCase().concat(string.slice(1));
 }
 
+function requestScore() {
+    let request = Number(prompt("What would you like to play to?"));
+
+    if (isNaN(request) || request <= 0) {
+        requestScore();
+    } else {
+        return request;
+    }
+}
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => button.addEventListener('click', function() {
     playRound(button);
@@ -90,4 +100,4 @@ buttons.forEach(button => button.addEventListener('click', function() {
 
 let playerScore = 0;
 let computerScore = 0;
-let finalScore = Number(prompt("What would you like to play to?"));
+let finalScore = requestScore();
