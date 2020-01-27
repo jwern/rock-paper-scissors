@@ -50,7 +50,20 @@ function trackScore(message) {
         computerScore += 1;
     }
 
-    return `Computer: ${computerScore}, Player: ${playerScore}`;
+    if (playerScore === finalScore) {
+        resetScores();
+        return `You are the grand winner!`;
+    } else if (computerScore === finalScore) {
+        resetScores();
+        return `The computer wins it all.`;
+    } else {
+        return `Computer: ${computerScore}, Player: ${playerScore}`;
+    }
+}
+
+function resetScores() {
+    playerScore = 0;
+    computerScore = 0;
 }
 
 function victoryMessage(victoryCondition, playerSelection, computerSelection) {
@@ -77,19 +90,4 @@ buttons.forEach(button => button.addEventListener('click', function() {
 
 let playerScore = 0;
 let computerScore = 0;
-
-// function game() {
-//     let totalScore = 0;
-
-//     for (let i = 0; i < 5; i++) {
-//         if (playRound()) {
-//             totalScore++;
-//         }
-//     }
-    
-//     if (totalScore >= 3) {
-//         console.log("You are the winner!");
-//     } else {
-//         console.log("You didn't win.");
-//     }
-// }
+let finalScore = Number(prompt("What would you like to play to?"));
