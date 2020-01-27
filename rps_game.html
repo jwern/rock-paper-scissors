@@ -5,75 +5,12 @@
         <title>Rock, Paper, Scissors</title>
     </head>
     <body>
-        <script>
-            function computerPlay() {
-                let computerChoice = pickRandomNumber(3);
-
-                if (computerChoice === 1) {
-                    return "rock";
-                } else if (computerChoice === 2) {
-                    return "paper";
-                } else {
-                    return "scissors";
-                }
-            }
-
-            function pickRandomNumber(choiceCount) {
-                return Math.floor(Math.random() * choiceCount) + 1;
-            }
-
-            function playRound() {
-                let playerSelection = prompt("Throw!").toLowerCase();
-                let computerSelection = computerPlay();
-
-                let youWin = false;
-
-                if (playerSelection === "rock" && computerSelection === "scissors") {
-                    youWin = true;
-                } else if (playerSelection === "paper" && computerSelection === "rock") {
-                    youWin = true;
-                } else if (playerSelection === "scissors" && computerSelection === "paper") {
-                    youWin = true;
-                }
-
-                console.log(victoryMessage(youWin, playerSelection, computerSelection));
-                return youWin;
-            }
-
-            function victoryMessage(victoryCondition, playerSelection, computerSelection) {
-                playerSelection = capitalizeFirstLetter(playerSelection);
-                computerSelection = capitalizeFirstLetter(computerSelection);
-
-                if (playerSelection === computerSelection) {
-                    return `Tie! You both picked ${playerSelection}.`;
-                } else if (victoryCondition === true) {
-                    return `You Win! ${playerSelection} beats ${computerSelection}`;
-                } else {
-                    return `You Lose! ${computerSelection} beats ${playerSelection}`;
-                }
-            }
-
-            function capitalizeFirstLetter(string) {
-                return string[0].toUpperCase().concat(string.slice(1));
-            }
-
-            function game() {
-                let totalScore = 0;
-
-                for (let i = 0; i < 5; i++) {
-                    if (playRound()) {
-                        totalScore++;
-                    }
-                }
-                
-                if (totalScore >= 3) {
-                    console.log("You are the winner!");
-                } else {
-                    console.log("You didn't win.");
-                }
-            }
-            
-            console.log(game());
-        </script>
+        <div class="main">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+            <p id="score"></p>
+        </div>
+        <script type="text/javascript" src="./javascript.js"></script>
     </body>
 </html>
