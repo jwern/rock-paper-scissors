@@ -1,0 +1,58 @@
+button {
+    width: 180px;
+    height: 120px;
+    margin: 0 20px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 26px;
+    color: white;
+    display: flex;
+    vertical-align: bottom;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(236, 212, 255);
+    border: 1px solid rgb(227, 200, 248);
+    border-radius: 70%;
+}
+
+button#rock {
+    background-image: url("https://img.icons8.com/officel/80/000000/rock.png");
+}
+
+button#paper {
+    background-image: url("https://img.icons8.com/dusk/64/000000/paper-plane.png");
+}
+
+button#scissors {
+    background-image: url("https://img.icons8.com/dusk/64/000000/scissors.png");
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+.button-container {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-labels {
+    display: inline-flex;
+    justify-content: space-around;
+    grid-row: 3 / 3;
+    grid-column: 2 / 3;
+}
+
+.attribution {
+    margin-top: 40px;
+    font-size: 12px;
+}

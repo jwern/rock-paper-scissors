@@ -100,4 +100,4 @@ buttons.forEach(button => button.addEventListener('click', function() {
 
 let playerScore = 0;
 let computerScore = 0;
-let finalScore = requestScore();
+let finalScore = 6;
