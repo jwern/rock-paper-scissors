@@ -1,8 +1,29 @@
+:root {
+    --computer-color: rgb(252, 193, 155);
+    --computer-border: rgb(246, 189, 150);
+    --player-color: rgb(180, 125, 206);
+    --player-border: rgb(175, 120, 200);
+    --shared-color: rgb(250, 161, 180);
+    --shared-border: rgb(246, 158, 176);
+}
+
+html {
+    height: 100%;
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(255, 250, 254);
+    height: 100%;
+}
+
+*:focus {
+    outline: 0 !important;
+}
+
 button {
     width: 180px;
-    height: 120px;
-    margin: 0 20px;
-    font-family: "Gill Sans", sans-serif;
+    height: 100px;
     font-size: 26px;
     color: white;
     display: flex;
@@ -18,6 +39,11 @@ button:hover {
     background-color: rgb(236, 212, 255);
     border: 1px solid rgb(227, 200, 248);
     border-radius: 70%;
+    transform: scale(1.02);
+}
+
+div button {
+    margin: 0 5px;
 }
 
 button#rock {
@@ -33,9 +59,17 @@ button#scissors {
 }
 
 .main {
+    height: 100%;
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: minmax(max-content, 1fr) 3fr 1fr;
+    grid-template-rows: minmax(max-content, 200px) max-content 1fr auto;
+}
+
+.text {
+    grid-column: 2 / 3;
+    justify-self: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .button-container {
@@ -48,11 +82,44 @@ button#scissors {
 .button-labels {
     display: inline-flex;
     justify-content: space-around;
-    grid-row: 3 / 3;
+    align-items: flex-start;
+    grid-row: 3 / 4;
     grid-column: 2 / 3;
 }
 
 .attribution {
-    margin-top: 40px;
     font-size: 12px;
+    grid-row: 4 / 5;
+    grid-column: 1 / 2;
+    margin: 0 0 10px 10px;
+}
+
+.computer-choice {
+    background-color: var(--computer-color);
+    border: 1px solid var(--computer-border);
+    border-radius: 70%;
+}
+
+.player-choice {
+    background-color: var(--player-color);
+    border: 1px solid var(--player-border);
+    border-radius: 70%;
+}
+
+.shared-choice {
+    background-color: var(--shared-color);
+    border: 1px solid var(--shared-border);
+    border-radius: 70%;
+}
+
+.computer-text {
+    color: var(--computer-color);
+}
+
+.player-text {
+    color: var(--player-color);
+}
+
+.shared-text {
+    color: var(--shared-color);
 }

@@ -28,19 +28,29 @@ function playRound(button) {
         youWin = true;
     }
 
-    let container = document.querySelector('.main');
-    let winner = document.createElement("p");
-    let score = document.querySelector('#score');
-    
-    if (container.lastChild.tagName === "P") {
-        container.removeChild(container.lastChild);
-    }
-
-    winner.textContent = victoryMessage(youWin, playerSelection, computerSelection);
-    score.textContent = trackScore(winner.textContent);
-    container.appendChild(winner);
+    styleResults(playerSelection, computerSelection, youWin);
 
     return youWin;
+}
+
+function styleResults(playerSelection, computerSelection, youWin) {
+    let winner = document.querySelector('#instructions');
+    let score = document.querySelector('#score');
+    let computerIcon = document.querySelector(`#${computerSelection}`);
+    let playerIcon = document.querySelector(`#${playerSelection}`);
+    let icons = document.querySelectorAll('button');
+
+    icons.forEach(button => button.classList.remove('computer-choice', 'player-choice', 'shared-choice'));
+
+    winner.innerHTML = victoryMessage(youWin, playerSelection, computerSelection);
+    score.innerHTML = trackScore(winner.textContent);
+
+    if (playerSelection === computerSelection) {
+        computerIcon.className += ('shared-choice');
+    } else {
+        computerIcon.className += ('computer-choice');
+        playerIcon.className += ('player-choice');
+    }
 }
 
 function trackScore(message) {
@@ -50,14 +60,17 @@ function trackScore(message) {
         computerScore += 1;
     }
 
+    let tempPlayerScore = playerScore;
+    let tempComputerScore = computerScore;
+
     if (playerScore === finalScore) {
         resetScores();
-        return `You are the grand winner!`;
+        return `<span class="player-text">${tempPlayerScore}</span> to <span class="computer-text">${tempComputerScore}</span>! You are the grand winner!`;
     } else if (computerScore === finalScore) {
         resetScores();
-        return `The computer wins it all.`;
+        return `<span class="computer-text">${tempComputerScore}</span> to <span class="player-text">${tempPlayerScore}</span>! The computer wins it all.`;
     } else {
-        return `Computer: ${computerScore}, Player: ${playerScore}`;
+        return `<span class="computer-text">Computer</span>: ${computerScore}, <span class="player-text">Player</span>: ${playerScore}`;
     }
 }
 
@@ -71,11 +84,11 @@ function victoryMessage(victoryCondition, playerSelection, computerSelection) {
     computerSelection = capitalizeFirstLetter(computerSelection);
 
     if (playerSelection === computerSelection) {
-        return `Tie! You both picked ${playerSelection}.`;
+        return `Tie! You both picked <span class="shared-text">${playerSelection}</span>.`;
     } else if (victoryCondition === true) {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        return `You Win! <span class="player-text">${playerSelection}</span> beats <span class="computer-text">${computerSelection}</span>`;
     } else {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        return `You Lose! <span class="computer-text">${computerSelection}</span> beats <span class="player-text">${playerSelection}</span>`;
     }
 }
 
@@ -84,7 +97,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function requestScore() {
-    let request = Number(prompt("What would you like to play to?"));
+    let request = Number(prompt("What score would you like to play to?"));
 
     if (isNaN(request) || request <= 0) {
         requestScore();
@@ -100,4 +113,4 @@ buttons.forEach(button => button.addEventListener('click', function() {
 
 let playerScore = 0;
 let computerScore = 0;
-let finalScore = 6;
+let finalScore = requestScore();
