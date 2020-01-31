@@ -8,14 +8,14 @@ This is my student solution to The Odin Project's first [JavaScript assignment](
 
 This was my first JavaScript project, period, as well as my first attempt at integrating JavaScript with HTML and CSS for on-screen dynamic events.  This project provided great practice with if statements, incrementing variables, querySelectors, and applying CSS styles via JavaScript.
 
+The baseline requirements for this project were to 1) allow the player to select rock, paper, or scissors via buttons, 2) show a running total of the score (between player and computer), and 3) proclaim an overall winner once the score cap had been reached.  I added icons for the buttons, a color-coded background based on which choice the player and computer make each round,  and a few other styling choices.
+
 ## Challenges ##
 
 Despite being a minor part of the overall project, the eventListener used on the input buttons took some time to understand simply because of the unexpected difference between these two extremely similar-looking lines of code:
 
-```buttons.forEach(button => button.addEventListener('click', playRound));
-
-buttons.forEach(button => button.addEventListener('click', playRound()));
-```
+```buttons.forEach(button => button.addEventListener('click', playRound));```
+```buttons.forEach(button => button.addEventListener('click', playRound()));```
 
 I also didn't immediately grasp the difference between working with DOM elements in JavaScript vs standard strings, etc.  I would attempt to apply a class to a string variable and nothing would happen.  I will need to keep actively thinking about the type of object I'm working with in a given function.
 
