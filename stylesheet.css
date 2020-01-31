@@ -47,15 +47,15 @@ div button {
 }
 
 button#rock {
-    background-image: url("https://img.icons8.com/officel/80/000000/rock.png");
+    background-image: url("Images/icons8-rock-80.png");
 }
 
 button#paper {
-    background-image: url("https://img.icons8.com/dusk/64/000000/paper-plane.png");
+    background-image: url("Images/icons8-paper-plane-64.png");
 }
 
 button#scissors {
-    background-image: url("https://img.icons8.com/dusk/64/000000/scissors.png");
+    background-image: url("Images/icons8-scissors-64.png");
 }
 
 .main {
