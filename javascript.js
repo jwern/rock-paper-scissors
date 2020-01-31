@@ -40,7 +40,7 @@ function styleResults(playerSelection, computerSelection, youWin) {
     let playerIcon = document.querySelector(`#${playerSelection}`);
     let icons = document.querySelectorAll('button');
 
-    icons.forEach(button => button.classList.remove('computer-choice', 'player-choice', 'shared-choice'));
+    clearBackgrounds(icons);
 
     winner.innerHTML = victoryMessage(youWin, playerSelection, computerSelection);
     score.innerHTML = trackScore(winner.textContent);
@@ -51,6 +51,15 @@ function styleResults(playerSelection, computerSelection, youWin) {
         computerIcon.className += ('computer-choice');
         playerIcon.className += ('player-choice');
     }
+
+    if (score.textContent.includes("grand winner") || score.textContent.includes("wins it all")) {
+        winner.innerHTML = " ";
+        finalScore = requestScore();
+    }
+}
+
+function clearBackgrounds(icons) {
+    icons.forEach(button => button.classList.remove('computer-choice', 'player-choice', 'shared-choice'));
 }
 
 function trackScore(message) {
