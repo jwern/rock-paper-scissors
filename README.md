@@ -15,6 +15,7 @@ The baseline requirements for this project were to 1) allow the player to select
 Despite being a minor part of the overall project, the eventListener used on the input buttons took some time to understand simply because of the unexpected difference between these two extremely similar-looking lines of code:
 
 ```buttons.forEach(button => button.addEventListener('click', playRound));```
+
 ```buttons.forEach(button => button.addEventListener('click', playRound()));```
 
 I also didn't immediately grasp the difference between working with DOM elements in JavaScript vs standard strings, etc.  I would attempt to apply a class to a string variable and nothing would happen.  I will need to keep actively thinking about the type of object I'm working with in a given function.
